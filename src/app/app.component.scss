@@ -1,0 +1,15 @@
+@use "../../public/colors.scss";
+$border-radius-base: 20px;
+$padding-consola: 5px;
+ #container{
+    background-color: colors.$accent-1;
+    border-radius: 40px;
+    max-width: 500px;
+    padding:calc( $border-radius-base + $padding-consola);
+}
+#pantalla{
+    height: 500px;
+    background-color: colors.$background;
+    border-radius: 40px;
+    outline: 10px solid colors.$primary;
+}
