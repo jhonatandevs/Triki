@@ -15,19 +15,19 @@ export class JugarComponent {
   serverService = inject(ServerService)
   userService = inject(UsuarioService)
   esPrivada = input();
-  id = input();
+  id = input<string>();
   constructor() {
-    const args: CrearSalaArgs = {
-      publica: true,
-      nombreJugador: this.userService.name()
-    }
-    this.serverService.server.emitWithAck("crearSala", args).then(res => {
-      console.log("Crear Sala", res)
-    })
+
   }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    console.log("ID:  ", this.id())
+    if (!this.esPrivada() && !this.id()) {
+      this.serverService.crearSala();
+    }
+    else if (this.id()) {
+      this.serverService.unirseASala(parseInt(this.id()!))
+    }
+    else {
+      this.serverService.crearSala(true);
+    }
   }
 }

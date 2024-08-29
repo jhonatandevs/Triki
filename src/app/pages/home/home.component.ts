@@ -25,4 +25,5 @@ export class HomeComponent {
         return this.router.navigate(["/jugar"])
     })
   }
+
 }
