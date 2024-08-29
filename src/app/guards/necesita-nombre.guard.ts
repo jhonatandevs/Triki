@@ -9,6 +9,6 @@ export const necesitaNombreGuard: CanActivateFn = (route, state) => {
   const router = inject(Router)
   if (userService.name()) return true;
   const urlTree = router.parseUrl("/cambiar-nombre");
-  //Se coloca skipLocationChange en true, para que no cambie la url ni siquiera cuando no esté permitido hacerlo
+  //Se coloca skipLocationChange en true, para que no cambie la url, que muestre la permitida, bajo la URL restringida.
   return new RedirectCommand(urlTree,{skipLocationChange:true})
 };

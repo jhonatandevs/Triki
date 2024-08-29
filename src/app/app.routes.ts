@@ -20,6 +20,21 @@ export const routes: Routes = [
         ]
     },
     {
+        path:"jugar/:id",
+        component: JugarComponent,
+        canActivate:[
+            necesitaNombreGuard
+        ]
+    },
+    {
+        path:"jugar-privada",
+        component: JugarComponent,
+        canActivate:[
+            necesitaNombreGuard
+        ],
+        data:{esPrivada:true}
+    },
+    {
         path:"cambiar-nombre",
         component: CambiarNombreComponent
     },

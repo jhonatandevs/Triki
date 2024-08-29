@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BotoneraComponent } from "./components/botonera/botonera.component";
+import { ServerService } from './services/server.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,5 @@ import { BotoneraComponent } from "./components/botonera/botonera.component";
 })
 export class AppComponent {
   title = 'Triki';
+  serverService = inject(ServerService)
 }
