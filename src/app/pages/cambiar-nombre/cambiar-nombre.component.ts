@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,8 +12,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class CambiarNombreComponent {
   usuarioService = inject(UsuarioService)
+  router = inject(Router)
   cambiarNombre(name: string) {
     this.usuarioService.name.set(name)
-
+    this.router.navigate(['/'])
   }
 }
